@@ -1,0 +1,29 @@
+{% extends "app/base.html" %}
+
+{% block content %}
+
+<h1>List Uraian</h1>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">No</th>
+      <th scope="col">Nama SPJ</th>
+      <th scope="col">Surat Ke</th>
+      <th scope="col">Tanggal Dibuat</th>
+      <th scope="col">No Surat</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for obj in objs %}
+    	<tr>
+    		<td>{{forloop.counter}}</td>
+    		<td>{{obj.nama_uraian}}</td>
+    		<td>{{obj.surat_ke}}</td>
+    		<td>{{obj.tgl_pembuatan}}</td>
+    		<td>{{obj.surat_ke}}/{{obj.spj_id.pembuat}}/{{obj.get_tgl_pembuatan_year}}</td>
+    	</tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+{% endblock content %}

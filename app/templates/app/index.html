@@ -1,0 +1,28 @@
+{% extends 'app/base.html' %}
+
+{% block content %}
+
+<h1>List SPJ</h1>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">No</th>
+      <th scope="col">Nama SPJ</th>
+      <th scope="col">Pembuat</th>
+      <th scope="col">Tanggal Dibuat</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for spj in spjs %}
+    	<tr>
+    		<td>{{forloop.counter}}</td>
+    		<td>{{spj.nama_spj}}</td>
+    		<td>{{spj.pembuat}}</td>
+    		<td>{{spj.tgl_pembuatan}}</td>
+    		<td><a class="btn btn-primary" href="{% url 'uraian' spj.id %}">Uraian</a></td>
+    	</tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+{% endblock content %}

@@ -1,0 +1,19 @@
+{% extends 'app/base.html' %}
+
+{% block content %}
+
+<h1 class="display-5">Tambah SPJ</h1>
+<form method="POST">
+    {% csrf_token %}
+    <div class="form-group">
+    	<label class="mt-3">Nama SPJ</label>
+    	{{form.nama_spj}}
+    </div>
+    <div class="form-group">
+    	<label class="mt-3">Pembuat</label>
+    	{{form.pembuat}}
+    </div>
+    <button class="btn btn-primary mt-3" type="submit"> Submit </button>
+</form>
+
+{% endblock content %}
