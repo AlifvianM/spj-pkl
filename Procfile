@@ -1,1 +1,1 @@
-web: gunicorn accpedia.wsgi
+web: gunicorn spj.wsgi
