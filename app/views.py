@@ -21,10 +21,9 @@ def create_spj(request):
         form = SpjForm(request.POST)
         if form.is_valid():
             spj = form.save()
-            print(Spj.objects.count())
-            print(Uraian.objects.count())
-            Uraian.objects.create(spj_id=spj, surat_ke=Uraian.objects.count() + 1, nama_uraian='Pemberian PPTK')
-            Uraian.objects.create(spj_id=spj, surat_ke=Uraian.objects.count() + 1, nama_uraian='Permohonan Pengadaan')
+            # print(Uraian.objects.filter(tgl_pembuatan__year=date.today().year).count())
+            Uraian.objects.create(spj_id=spj, surat_ke=Uraian.objects.filter(tgl_pembuatan__year=date.today().year).count() + 1, nama_uraian='Pemberian PPTK', tgl_pembuatan=date.today() + timedelta(days=2))
+            Uraian.objects.create(spj_id=spj, surat_ke=Uraian.objects.filter(tgl_pembuatan__year=date.today().year).count() + 1, nama_uraian='Permohonan Pengadaan',  tgl_pembuatan=date.today() + timedelta(days=4))
             return redirect('/')
         else:
             pass
