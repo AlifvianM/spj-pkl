@@ -17,3 +17,17 @@ class Uraian(models.Model):
 
 	def get_tgl_pembuatan_year(self):
 		return self.tgl_pembuatan.year
+
+class TanggalMerah(models.Model):
+
+	tanggal_merah = models.DateField()
+
+	# class Meta:
+	# 	verbose_name = _("TanggalMerah")
+	# 	verbose_name_plural = _("TanggalMerahs")
+
+	# def __str__(self):
+	# 	return self.tanggal_merah
+
+	# def get_absolute_url(self):
+	# 	return reverse("TanggalMerah_detail", kwargs={"pk": self.pk})

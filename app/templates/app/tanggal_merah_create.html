@@ -1,0 +1,12 @@
+{% extends 'app/base.html' %}
+
+{% block content %}
+
+<h1 class="display-5">{{title}}</h1>
+<form method="POST">
+    {% csrf_token %}
+    {{form}}
+    <button class="btn btn-primary mt-3" type="submit"> Submit </button>
+</form>
+
+{% endblock content %}
